@@ -1,0 +1,515 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'options_model.dart';
+export 'options_model.dart';
+
+class OptionsWidget extends StatefulWidget {
+  const OptionsWidget({
+    Key? key,
+    String? adm,
+    String? qualidadeID,
+  })  : this.adm = adm ?? '1',
+        this.qualidadeID = qualidadeID ?? 'TNp6ns1prZfDr1RobpDmJ4pi8683',
+        super(key: key);
+
+  final String adm;
+  final String qualidadeID;
+
+  @override
+  _OptionsWidgetState createState() => _OptionsWidgetState();
+}
+
+class _OptionsWidgetState extends State<OptionsWidget> {
+  late OptionsModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => OptionsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return Align(
+      alignment: AlignmentDirectional(-1.00, 0.00),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(1, 1, 1, 1),
+        child: Container(
+          width: 408,
+          decoration: BoxDecoration(
+            color: Color(0xFFE67817),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 4,
+                color: Color(0x33000000),
+                offset: Offset(0, 2),
+              )
+            ],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Align(
+            alignment: AlignmentDirectional(0.00, 0.00),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: AlignmentDirectional(1.00, 0.00),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 2, 15, 0),
+                      child: FlutterFlowIconButton(
+                        borderRadius: 20,
+                        borderWidth: 1,
+                        buttonSize: 25,
+                        icon: Icon(
+                          Icons.close_sharp,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          size: 20,
+                        ),
+                        onPressed: () async {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 12, 0, 8),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'uy79wq3g' /* Opções de usuário */,
+                      ),
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                            fontFamily: 'Poppins',
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            fontSize: 14,
+                          ),
+                    ),
+                  ),
+                  if (currentUserUid == widget.qualidadeID)
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFE67817),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+
+                            context.pushNamed('cadastro');
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('cadastro');
+                                  },
+                                  child: Icon(
+                                    Icons.people_alt_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      30, 0, 0, 0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('cadastro');
+                                    },
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        '2z3x526o' /* Cadastrar nova conta */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  MouseRegion(
+                    opaque: false,
+                    cursor: SystemMouseCursors.basic ?? MouseCursor.defer,
+                    child: Visibility(
+                      visible: currentUserUid == widget.qualidadeID,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Anotacao');
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 150),
+                          curve: Curves.easeInOut,
+                          width: double.infinity,
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('cadastro');
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12, 0, 0, 0),
+                                    child: Icon(
+                                      Icons.add_home_work_sharp,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      size: 30,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          30, 0, 0, 0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'lqg6epgm' /* Cadastrar nova O.S. */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    onEnter: ((event) async {
+                      setState(() => _model.mouseRegionHovered1 = true);
+                    }),
+                    onExit: ((event) async {
+                      setState(() => _model.mouseRegionHovered1 = false);
+                    }),
+                  ),
+                  MouseRegion(
+                    opaque: false,
+                    cursor: SystemMouseCursors.click ?? MouseCursor.defer,
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 150),
+                      curve: Curves.easeInOut,
+                      width: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (Theme.of(context).brightness == Brightness.dark)
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setDarkModeSetting(
+                                        context, ThemeMode.light);
+                                  },
+                                  child: Icon(
+                                    Icons.mode_night_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                            if (!(Theme.of(context).brightness ==
+                                Brightness.dark))
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setDarkModeSetting(context, ThemeMode.dark);
+                                  },
+                                  child: Icon(
+                                    Icons.mode_night_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'mwv6191g' /* Modo escuro */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    onEnter: ((event) async {
+                      setState(() => _model.mouseRegionHovered2 = true);
+                    }),
+                    onExit: ((event) async {
+                      setState(() => _model.mouseRegionHovered2 = false);
+                    }),
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 4, 0, 8),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'q08uvy95' /* Seção de ajuda */,
+                      ),
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                            fontFamily: 'Poppins',
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                          ),
+                    ),
+                  ),
+                  MouseRegion(
+                    opaque: false,
+                    cursor: SystemMouseCursors.click ?? MouseCursor.defer,
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 150),
+                      curve: Curves.easeInOut,
+                      width: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                              child: Icon(
+                                Icons.email,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 20,
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'kodjauhh' /* Ajuda por email */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    onEnter: ((event) async {
+                      setState(() => _model.mouseRegionHovered3 = true);
+                    }),
+                    onExit: ((event) async {
+                      setState(() => _model.mouseRegionHovered3 = false);
+                    }),
+                  ),
+                  MouseRegion(
+                    opaque: false,
+                    cursor: SystemMouseCursors.click ?? MouseCursor.defer,
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 150),
+                      curve: Curves.easeInOut,
+                      width: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                              child: Icon(
+                                Icons.settings_phone,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 20,
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'eiafz82j' /* Ajuda por telefone */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    onEnter: ((event) async {
+                      setState(() => _model.mouseRegionHovered4 = true);
+                    }),
+                    onExit: ((event) async {
+                      setState(() => _model.mouseRegionHovered4 = false);
+                    }),
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 4, 24, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        GoRouter.of(context).prepareAuthEvent();
+                        await authManager.signOut();
+                        GoRouter.of(context).clearRedirectLocation();
+
+                        context.pushNamedAuth('loginPage', context.mounted);
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        'ddkws75v' /* Logout */,
+                      ),
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 40,
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        color: Color(0xFFE67817),
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyLarge.override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      showLoadingIndicator: false,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
